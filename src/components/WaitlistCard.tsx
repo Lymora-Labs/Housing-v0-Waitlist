@@ -5,7 +5,7 @@ export default function WaitlistCard() {
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(false);
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email) setSubmitted(true);
   };
@@ -39,26 +39,13 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
         {/* Right — form panel */}
         <div
-          className="flex flex-col justify-between flex-1 px-10 py-10"
+          className="flex flex-col justify-between flex-1 px-10 py-30"
           style={{ background: "#f5f2ed", borderRadius: "0 1.5rem 1.5rem 0" }}
         >
-          {/* Back link */}
           <div>
-            <a
-              href="#"
-              className="text-sm flex items-center gap-1 mb-10"
-              style={{ color: "#555"}}
-            >
-              <span style={{ fontSize: 16 }}>←</span> Back
-            </a>
-
-            {/* Heading */}
             {!submitted ? (
               <>
-                <p
-                  className="text-sm mb-1"
-                  style={{ color: "#777" }}
-                >
+                <p className="text-sm mb-1" style={{ color: "#777" }}>
                   Join the waitlist for
                 </p>
                 <h1
@@ -71,10 +58,10 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                 >
                   Lymora Housing
                 </h1>
-                <p className="text-sm mb-1"
-                  style={{ color: "#777" }}>The First AI powered Housing Solution</p>
+                <p className="text-sm mb-1" style={{ color: "#777" }}>
+                  The First AI powered Housing Solution
+                </p>
 
-                {/* Form */}
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-8">
                   <input
                     type="email"
@@ -109,25 +96,20 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                       transition: "background 0.2s ease",
                       marginTop: "0.25rem",
                     }}
-                    onMouseEnter={(e) => ((e.target as HTMLButtonElement).style.background = "#333")}
-onMouseLeave={(e) => ((e.target as HTMLButtonElement).style.background = "#1a1a1a")}
+                    onMouseEnter={(e) =>
+                      ((e.target as HTMLButtonElement).style.background = "#333")
+                    }
+                    onMouseLeave={(e) =>
+                      ((e.target as HTMLButtonElement).style.background = "#1a1a1a")
+                    }
                   >
                     Join Waitlist
                   </button>
                 </form>
-
-                
               </>
             ) : (
               <div className="flex flex-col justify-center h-full py-8">
-                <div
-                  style={{
-                    fontSize: "2rem",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  ✦
-                </div>
+                <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>✦</div>
                 <h2
                   style={{
                     fontSize: "1.6rem",
@@ -139,48 +121,45 @@ onMouseLeave={(e) => ((e.target as HTMLButtonElement).style.background = "#1a1a1
                   You're on the list.
                 </h2>
                 <p style={{ color: "#777", fontSize: "0.95rem" }}>
-                  We'll reach out to <strong>{email}</strong> when it's your turn.
+                  We'll reach out to <strong>{email}</strong> when we're live.
                 </p>
               </div>
             )}
           </div>
 
-          {/* Footer logo */}
+          {/* Footer */}
           <div
-            className="flex items-center gap-3 mt-10"
-            style={{ borderTop: "1px solid #ddd9d2", paddingTop: "1.25rem" }}
+            className="flex items-center justify-center gap-2 mt-6"
+            style={{ borderTop: "1px solid #ddd9d2", paddingTop: "0.75rem" }}
           >
-            <div
-              style={{
-                width: 32,
-                height: 32,
-                background: "#1a1a1a",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#f5f2ed",
-                fontWeight: 700,
-                fontSize: "0.85rem",
-              }}
+            <span style={{ fontSize: "0.7rem", color: "#999" }}>brought to you by</span>
+
+            {/* Glassy logo */}
+            <span
+              className="relative inline-flex"
+              style={{ height: "1.5rem", width: "1.5rem", flexShrink: 0 }}
             >
-              ✦
-            </div>
-            <div>
-              <div
+              <img
+                src="/lym.png"
+                className="h-full w-full rounded-full object-cover"
+                alt=""
+                style={{ display: "block" }}
+              />
+              <span
+                className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
-                  fontWeight: 700,
-                  fontSize: "1rem",
-                  color: "#1a1a1a",
-                  letterSpacing: "0.02em",
+                  background: `
+                    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.08) 40%, transparent 65%),
+                    radial-gradient(circle at 65% 75%, rgba(255,255,255,0.12) 0%, transparent 50%)
+                  `,
+                  boxShadow: `
+                    inset 0 1px 2px rgba(255,255,255,0.6),
+                    inset 0 -2px 4px rgba(0,0,0,0.3),
+                    0 2px 8px rgba(0,0,0,0.4)
+                  `,
                 }}
-              >
-                poieto
-              </div>
-              <div style={{ fontSize: "0.7rem", color: "#999", fontFamily: "Georgia, serif" }}>
-                Shared Knowledge for a Responsible AI Future.
-              </div>
-            </div>
+              />
+            </span>
           </div>
         </div>
       </div>
