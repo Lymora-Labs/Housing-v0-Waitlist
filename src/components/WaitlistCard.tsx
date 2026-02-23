@@ -5,9 +5,21 @@ export default function WaitlistCard() {
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email) setSubmitted(true);
+    if (!email) return;
+
+    try {
+      await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+    } catch (_) {
+      // silently continue — don't block the user if network fails
+    }
+
+    setSubmitted(true);
   };
 
   return (
