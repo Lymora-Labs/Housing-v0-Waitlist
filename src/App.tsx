@@ -1,4 +1,4 @@
-import WaitlistCard from "./components/Waitlistcard"
+import WaitlistCard from "./components/WaitlistCard.tsx"
 
 const App = () => {
   return (
