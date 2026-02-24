@@ -71,7 +71,7 @@ export default function WaitlistCard() {
                   Lymora Housing
                 </h1>
                 <p className="text-sm mb-1" style={{ color: "#777" }}>
-                  The First AI powered Housing Solution
+                  The First AI powered Housing Solution for Students
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-8">
